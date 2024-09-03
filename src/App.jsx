@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 // import 'aos/dist/aos.css'
 import Home from './pages/home';
@@ -51,11 +51,6 @@ function App() {
   {/* <Footer /> */}
   </div>
 )
-}
-
-export default App
-
-  )
 }
 
 export default App
