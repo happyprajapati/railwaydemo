@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState('')
 
   useEffect(()=>{
-    fetch(`https://meghainfocom-production.up.railway.app/auth/allcount`, {
+    fetch(`https://meghainfocom-production.up.railway.app/admin/allcount`, {
       method: 'post',
     })
       .then((res) => res.json())
@@ -19,14 +19,6 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -36,11 +28,11 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="font-bold">
         Click on the Vite and React logos to learn more
       </p>
 
-      <p className="read-the-docs font-bold">
+      <p className="font-bold">
         {data}
       </p>
     </>
