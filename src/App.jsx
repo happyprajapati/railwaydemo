@@ -7,7 +7,7 @@ import Header from "./components/header";
 // import Contact from "./pages/contact";
 // import About from "./pages/about";
 import Login from "./pages/login";
-// import Register from "./pages/register";
+import Register from "./pages/register";
 // import CatProd from "./pages/catProd";
 // import Product from "./pages/product";
 // import ForgetPass from "./pages/forgetPass";
@@ -40,8 +40,8 @@ function App() {
         {/* <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} /> */}
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} />
-        <Route path="/forgetpass" element={<ForgetPass />} />
+        <Route path="/register" element={<Register />} />
+        {/* <Route path="/forgetpass" element={<ForgetPass />} />
         <Route path="/cat/:name" element={<CatProd />} />
         <Route path="/prod/:id" element={<Product />} />
         <Route path="/search/:value" element={<Search />} />
