@@ -9,13 +9,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Bounce, toast } from 'react-toastify';
-import { City } from 'country-state-city';
+// import { City } from 'country-state-city';
 
 const schema = z
   .object({
     name: z.string().min(3, { message: "Name must be at least 3 characters" }),
     city: z.string().min(3, { message: "City must be at least 3 characters" }),
-    // otp: z.string({ message: "OTP required" }).min(6, { message: "OTP must be 6 characters" }),
     phone: z.string({message: "contact number required"}).min(10, { message: "Invalid contact number" }),
     password: z
       .string()
@@ -26,7 +25,7 @@ export default function Register() {
 
   const [showPass, setShowPass] = useState(false);
   const [message, setMsg] = useState("");
-  const [city, setCity] = useState([]);
+//   const [city, setCity] = useState([]);
   const [contact, setContact] = useState("");
   const [otp, setOtp] = useState("");
   const [userOtp, setUserOtp] = useState("");
@@ -40,7 +39,7 @@ export default function Register() {
   } = useForm({ resolver: zodResolver(schema) });
 
   useEffect(()=>{
-    setCity(City.getCitiesOfState('IN', 'GJ'));
+    // setCity(City.getCitiesOfState('IN', 'GJ'));
   },[])
 
   useEffect(()=>{
@@ -191,11 +190,11 @@ const hanldeRegister = (formData) => {
                   className="w-full rounded-lg border border-stroke bg-transparent p-3 text-black outline-none focus:border-primary focus:shadow-md dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 >
                 <option className="py-2">Select City</option>
-                    {city.map((city, key) => (
+                    {/* {city?.map((city, key) => (
                       <option value={city.name} key={key} className="py-2">
                         {city.name}
                       </option>
-                    ))}
+                    ))} */}
                   </select>
                 <span className="absolute right-4 top-3">
                 <PiCity className="text-gray-500 h-6 w-6" />
