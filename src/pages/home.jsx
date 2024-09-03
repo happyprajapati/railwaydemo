@@ -20,7 +20,6 @@ export default function Home() {
 
   return (
     <>
-    <p className="mt-30 font-bold">Hello World!!</p>
       <ImageSlider />
       <div data-aos="fade-up">
         <CatSlider />

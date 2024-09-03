@@ -17,12 +17,12 @@ import Header from "./components/header";
 // import Search from "./pages/search";
 // import Error from "./pages/error";
 // import Unauthorized from "./pages/unauthorized";
-// import { useState, useEffect } from "react";
-// import { loginContext } from "./contex/contex";
+import { useState, useEffect } from "react";
+import { loginContext } from "./context/context";
 
 function App() {
   
-  // const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false);
   
   // useEffect(()=>{
   //   if(localStorage.getItem('authToken') == null){
@@ -32,6 +32,7 @@ function App() {
 
   return (
     <div className="bg-main">
+      <loginContext.Provider value={{login, setLogin}} >
       {/* <ToastContainer /> */}
     <Header />
     <Routes>
@@ -49,6 +50,7 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} /> */}
     </Routes>
   {/* <Footer /> */}
+  </loginContext.Provider>
   </div>
 )
 }

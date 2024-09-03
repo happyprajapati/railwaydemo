@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Navbar,
   Collapse,
@@ -15,7 +15,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { FaBars } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
 import { IoSearchSharp } from "react-icons/io5";
-// import { loginContext } from "../contex/contex";
+import { loginContext } from "./../context/context";
 
 export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -25,7 +25,7 @@ export default function Header() {
   const [openSearch, setOpenSearch] = React.useState(false);
   const [cat, setCat] = React.useState([]);
   const [searchVal, setSearchVal] = React.useState('');
-//   const login = useContext(loginContext)
+  const login = useContext(loginContext)
 
   const handleScroll = () => {
     if (window.scrollY > 80) {
@@ -42,7 +42,7 @@ export default function Header() {
   const handleLogout = () => {
     localStorage.removeItem('authToken')
     localStorage.removeItem('role')
-    // login.setLogin(false)
+    login.setLogin(false)
   };
 
   React.useEffect(() => {
@@ -52,7 +52,7 @@ export default function Header() {
     );
     window.addEventListener("scroll", handleScroll);
 
-    // console.log(login.login)
+    console.log(login.login)
     setUrl(location.pathname);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -74,9 +74,8 @@ export default function Header() {
     if(localStorage.getItem('authToken')){
       setIsLogin(true)
     }
-    // console.log(login.login)
-//   }, [login.login])
-  }, [])
+    console.log(login.login)
+  }, [login.login])
 
   function NavListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -277,14 +276,6 @@ export default function Header() {
         </div>
         <Collapse open={openNav}>
           <NavList />
-          {/* <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-            <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
-              Log In
-            </Button>
-            <Button variant="gradient" size="sm" fullWidth>
-              Sign In
-            </Button>
-          </div> */}
         </Collapse>
       </Navbar>
       <div className={`fixed h-screen inset-0 bg-black/60 z-40 flex items-center justify-center overflow-y-auto transition ease-in duration-300 ${openSearch ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
